@@ -1,0 +1,20 @@
+
+map <C-g>nebula t10.10.0.183<CR>
+map <C-g>sensu t10.10.0.108:8080<CR>
+map <C-g>uchiwa t10.10.0.108:8080<CR>
+map <C-g>easy tes.easyproject.cz/issues<CR>
+map <C-g>graf t10.10.0.108:8081<CR>
+map <C-g>graph t10.10.0.108:8082<CR>
+map <C-g>tran ttranslate.google.com<CR>
+map <C-g>101 t10.10.0.101<CR>
+map <C-g>git tgit.easy.cz<CR>
+
+
+
+cnoremap <C-p> <Esc><Up>
+cnoremap <C-n> <Esc><Down>
+
+inoremap <C-j> <CR>
+cnoremap <C-j> <CR>
+
+
