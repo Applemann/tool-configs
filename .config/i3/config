@@ -28,6 +28,10 @@ font pango:monospace 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+new_window normal
+hide_edge_borders both
+popup_during_fullscreen leave_fullscreen
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -64,11 +68,13 @@ bindsym $alt+l focus right
 bindsym $alt+h focus left
 bindsym $alt+j focus down
 bindsym $alt+k focus up
+bindsym $ctrl+$alt+j focus down
+bindsym $ctrl+$alt+k focus up
 
-bindsym $alt+Shift+Tab focus left
-bindsym $alt+Tab focus right
-bindsym $mod+Shift+Tab focus up
-bindsym $mod+Tab focus down
+#bindsym $alt+Shift+Tab focus left
+#bindsym $alt+Tab focus right
+bindsym $alt+Shift+Tab focus up
+bindsym $alt+Tab focus down
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -96,6 +102,7 @@ bindsym $mod+s split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym $mod+z fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout stacking
@@ -121,28 +128,17 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 
-#set $workspace1 "[1]:Firefox"
-#set $workspace2 "[2]:IDE"
-#set $workspace3 "[3]:Terminal"
-#set $workspace4 "[4]:Work"
-#set $workspace5 "[5]:Docker"
-#set $workspace6 "[6]:Ansible"
-#set $workspace7 "[7]:Jenkins"
-#set $workspace8 "[8]:Server"
-#set $workspace9 "[9]:Comunicators"
-#set $workspace0 "[0]:Database"
-
-
 set $workspace1 "[1]:Firefox"
-set $workspace2 "[2]:IDE"
-set $workspace3 "[3]:Terminal"
-set $workspace4 "[4]"
-set $workspace5 "[5]"
-set $workspace6 "[6]"
-set $workspace7 "[7]"
-set $workspace8 "[8]:Krusader"
-set $workspace9 "[9]:Mail"
-set $workspace0 "[0]:Virtuals"
+set $workspace2 "[2]:Terminal"
+set $workspace3 "[3]:Papertrail"
+set $workspace4 "[4]:Monitoring"
+set $workspace5 "[5]:Docker"
+set $workspace6 "[6]:Ansible"
+set $workspace7 "[7]:Virtuals"
+set $workspace8 "[8]:Servers"
+set $workspace9 "[9]:Comunicators"
+set $workspace0 "[0]:Work"
+
 
 # switch to workspace
 bindsym $alt+1 workspace $workspace1
@@ -229,6 +225,7 @@ mode "$mode_launcher" {
     bindsym t exec thunderbird; mode "default"
     bindsym v exec virtualbox; mode "default"
     bindsym k exec dbus-launch krusader; mode "default"
+    bindsym a exec /home/martin/bin/autoload; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -236,9 +233,9 @@ mode "$mode_launcher" {
 
 
 exec --no-startup-id /etc/upstart
-exec --no-startup-id i3-msg "workspace $workspace1; exec firefox"
-exec --no-startup-id i3-msg "workspace $workspace3; exec mycmd"
-exec --no-startup-id i3-msg "workspace $workspace7; exec google-chrome"
-exec --no-startup-id i3-msg "workspace $workspace8; exec dbus-launch krusader"
-exec --no-startup-id i3-msg "workspace $workspace9; exec thunderbird"
-exec --no-startup-id i3-msg "workspace $workspace1"
+#exec --no-startup-id i3-msg "workspace $workspace1; exec firefox"
+#exec --no-startup-id i3-msg "workspace $workspace3; exec mycmd"
+#exec --no-startup-id i3-msg "workspace $workspace7; exec google-chrome"
+#exec --no-startup-id i3-msg "workspace $workspace8; exec dbus-launch krusader"
+#exec --no-startup-id i3-msg "workspace $workspace9; exec thunderbird"
+#exec --no-startup-id i3-msg "workspace $workspace1"
