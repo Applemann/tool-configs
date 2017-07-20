@@ -128,16 +128,29 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 
-set $workspace1 "[1]:Firefox"
-set $workspace2 "[2]:Terminal"
-set $workspace3 "[3]:Papertrail"
-set $workspace4 "[4]:Monitoring"
-set $workspace5 "[5]:Docker"
-set $workspace6 "[6]:Ansible"
-set $workspace7 "[7]:Virtuals"
-set $workspace8 "[8]:Servers"
-set $workspace9 "[9]:Comunicators"
-set $workspace0 "[0]:Work"
+## WORK:
+set $workspace1 "1:[1]:Firefox"
+set $workspace2 "2:[2]:Terminal"
+set $workspace3 "3:[3]:Papertrail"
+set $workspace4 "4:[4]:Monitoring"
+set $workspace5 "5:[5]:Docker"
+set $workspace6 "6:[6]:Ansible"
+set $workspace7 "7:[7]:Virtuals"
+set $workspace8 "8:[8]:Servers"
+set $workspace9 "9:[9]:Comunicators"
+set $workspace0 "0:[0]:Work"
+
+## HOME
+#set $workspace1 "1:[1]:Firefox"
+#set $workspace2 "2:[2]:IDE"
+#set $workspace3 "3:[3]:Terminal"
+#set $workspace4 "4:[4]"
+#set $workspace5 "5:[5]"
+#set $workspace6 "6:[6]"
+#set $workspace7 "7:[7]:Facebook"
+#set $workspace8 "8:[8]:Krusader"
+#set $workspace9 "9:[9]:Mail"
+#set $workspace0 "10:[0]:Badoo"
 
 
 # switch to workspace
@@ -231,6 +244,8 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
+bindsym $mod+Shift+Right move workspace to output right
+bindsym $mod+Shift+Left move workspace to output left
 
 exec --no-startup-id /etc/upstart
 #exec --no-startup-id i3-msg "workspace $workspace1; exec firefox"
