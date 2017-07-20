@@ -60,8 +60,8 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 
 
-bindsym $alt+n focus right
-bindsym $alt+p focus left
+bindsym $alt+l focus right
+bindsym $alt+h focus left
 bindsym $alt+j focus down
 bindsym $alt+k focus up
 
@@ -139,7 +139,7 @@ set $workspace3 "[3]:Terminal"
 set $workspace4 "[4]"
 set $workspace5 "[5]"
 set $workspace6 "[6]"
-set $workspace7 "[7]:Facebook"
+set $workspace7 "[7]"
 set $workspace8 "[8]:Krusader"
 set $workspace9 "[9]:Mail"
 set $workspace0 "[0]:Virtuals"
@@ -158,8 +158,8 @@ bindsym $alt+0 workspace $workspace0
 
 bindsym Control+Mod1+h workspace prev
 bindsym Control+Mod1+l workspace next
-bindsym $alt+h workspace prev
-bindsym $alt+l workspace next
+bindsym $alt+p workspace prev
+bindsym $alt+n workspace next
 
 # move focused container to workspace
 bindsym $alt+Shift+1 move container to workspace $workspace1; workspace $workspace1
