@@ -6,7 +6,7 @@ let NERDTreeWinPos="left"
 
 " expand tabs to spaces
 " to insert a real tab, use CTRL-V<Tab>
- 
+
 set expandtab
 " number of spaces to use for each step of (auto)indent
 
@@ -100,6 +100,7 @@ function! Nm()
     endif
 endfunction
 set statusline=%3n\ %<%f%=%4b/0x%02B\ %{Ft()}\ %{Mo()}%{Nm()}%{Ro()}\ %2c\ %2v\ %4l\ %4L\ %3p%%
+" C
 " indent  allow backspacing over autoindent
 " eol     allow backspacing over line breaks (join lines)
 " start   allow backspacing over the start of insert
@@ -123,16 +124,16 @@ set whichwrap=b,h,<,[
 " Visual, Command modes, etc.) this could screw cursor keys in Insert mode
 " on veeeeeery slow machines / connections (not likely to ever happen)
 " the default value is 1000 ms, which is terribly slow
-set notimeout       " don't timeout on mappings       
+set notimeout       " don't timeout on mappings
 set ttimeout        " do timeout on terminal key codes
-set timeoutlen=50   " timemout in 50 msec            
+set timeoutlen=50   " timemout in 50 msec
 " I want man to open in new termwin
 " unfortunately doesn't work
 "set keywordprg=rxvt\ -e\ man
 " jump to the matching paren for .5sec, or beep if there isn't one
 set showmatch
 
-" Tells when the 'equalalways' option applies: 
+" Tells when the 'equalalways' option applies:
 " ver     vertically, width of windows is not affected
 " hor     horizontally, height of windows is not affected
 " both    width and height of windows is affected
@@ -167,7 +168,7 @@ nmap gf :sp <cfile><CR>
 source $VIMRUNTIME/menu.vim
 set wildmenu
 "set wildmode=longest,list
-set wildmode=longest:full
+set wildmode=longest,full
 set wcm=<C-Z>
 map <F10> :emenu <C-Z>
 
@@ -191,7 +192,7 @@ if has("gui_running")
     set winaltkeys=menu
     set guifont=-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-2
 endif
-if &t_Co > 2 || has("gui_running") 
+if &t_Co > 2 || has("gui_running")
     syntax on
     highlight Folded guifg=Wheat guibg=DarkRed
     syntax sync fromstart
@@ -204,7 +205,7 @@ set guioptions-=T
 let g:DirDiffExcludes = "CVS"
 
 
-" <F2> prepne klavesnici do normalniho (americkeho) rozlozeni klaves  
+" <F2> prepne klavesnici do normalniho (americkeho) rozlozeni klaves
 " map <F2> :set noremap<CR>:so ~/.vim/vimcz-encz<CR>:set remap<CR>
 " imap <F2> <C-O>:set noremap<CR><C-O>:so ~/.vim/vimcz-encz<CR><C-O>:set remap<CR>
 
@@ -214,7 +215,7 @@ let g:DirDiffExcludes = "CVS"
 
 " <F5> zmeni hlsearch status
 " map <F5> :set hls!<CR>:set hls?<CR>
-imap <F5> <C-O>:set hls!<CR>:set hls?<CR>
+"imap <F5> <C-O>:set hls!<CR>:set hls?<CR>
 imap jj <Esc>
 
 nmap <F6> :syn sync fromstart<CR>
@@ -255,12 +256,140 @@ imap <F12> <C-O>:set wim=list:full<CR>
 "
 "
 
+
+
+" ---- Martin hacks ---- 
+
 map t :tabedit<space>
-map <C-n> gt
-map <C-p> gT
+map <c-n> gt
+map <c-p> gT
+
+map gn :bn<CR>
+map gp :bp<CR>
 
 noremap <S-w><S-w> :w <CR>
-map <S-T> :NERDTreeToggle<CR> 
-map <C-r> :r !bash ~/.tmux/run_puppet.sh<CR>
-set paste
+map <S-t> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.pyc$', '\~$']
+"map <C-r> :r !bash ~/.tmux/run_puppet.sh<CR>
+set nopaste
 set tabstop=2
+
+set foldmethod=indent
+set foldlevel=99
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+map <leader>td <Plug>TaskList
+map <leader>g :GundoToggle<CR>
+
+"map < <C-w><
+"map > <C-w>>
+map - <C-w>-
+map + <C-w>+
+map <space> <space>
+
+
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
+let g:snips_trigger_key = '<tab>'
+let g:snips_trigger_key_backwards = '<s-tab>'
+
+" MiniBufExpl Colors
+hi MBENormal               guifg=#808080 guibg=fg
+hi MBEChanged              guifg=#CD5907 guibg=fg
+hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
+hi MBEVisibleChanged       guifg=#F1266F guibg=fg
+hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
+hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
+
+let g:airline_powerline_fonts = 1
+set directory-=/tmp
+set directory^=/tmp//
+set backupdir-=/tmp
+set backupdir^=/tmp//
+set guifont=monospace
+colorscheme desert
+
+"set ffs=dos
+
+noremap ]] k[mj
+noremap [[ ]mj
+
+"map <M-s>
+map <leader>w :%s/\s\+$//e<CR>:w<CR>
+vmap <esc> v
+
+"imap ll <Esc>la
+"imap hh <Esc>ha
+imap <C-c> <CR><Esc>O
+nmap <C-c> di}i<CR><Esc>O<Esc>p
+"wmap :W :w
+
+
+
+
+""" Gitgutter customiation 
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>u <Plug>GitGutterRevertHunk
+"let g:gitgutter_override_sign_column_highlight = 0
+"highlight SignColumn ctermbg=whatever    " terminal Vim
+"highlight SignColumn guibg=white      " gVim/MacVim
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = 'w'
+"let g:gitgutter_highlight_lines = 1
+
+highlight GitGutterAddLine guibg=green 
+highlight GitGutterChangeLine guibg=orange 
+highlight GitGutterDeleteLine guibg=red 
+highlight GitGutterAddLine ctermbg=green 
+highlight GitGutterChangeLine ctermbg=blue 
+highlight GitGutterDeleteLine ctermbg=red 
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+nmap <leader>h :GitGutterLineHighlightsToggle<CR>
+nmap <leader>ht :GitGutterToggle<CR>
+
+
+
+
+
+
+
+
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+execute pathogen#infect()
+call pathogen#helptags()
+
+
+
+au BufReadPost *.ts set syntax=typescript
+
+
+
