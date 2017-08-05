@@ -1,9 +1,15 @@
 #!/bin/zsh
 
-#
-# Export
-#
+#############################################
+###                                       ###
+###  Contributors:   Smradoch             ###
+###                  David                ###
+###                  Drakeman             ###
+###                                       ###
+#############################################
 
+
+fpath=(~/.zsh/bin $fpath) 
 
 export PAGER=less;
 export EDITOR=vim;
@@ -13,6 +19,7 @@ export HISTFILE=~/.zhistory
 export LSCOLORS="cxfxcxdxbxegedabagacad"
 export MANWIDTH="76"
 export PATH=$PATH:~/bin:/home/martin/bin
+export XDG_CONFIG_HOME=/home/martin/.local
 
 bindkey -e
 
@@ -64,48 +71,41 @@ setopt pushdignoredups
 autoload -U colors; colors
 autoload -U compinit; compinit
 
-# david's hacks
-# Terminal commandline colors and tags
 
-chpwd() {
-    [[ -t 1 ]] || return
-	case $TERM in
-	    sun-cmd) print -Pn "\e]l%~\e\\"
-		;;
-	    *xterm*|rxvt|(dt|k|E)term) print -Pn "\e]2;$HOST:%~\a"
-		;;
-	    esac
-}
-
-if [[ "$USER" == "martin" ]]
-then
-    PROMPT="%{$fg_no_bold[white]%}%n \
-at %{$fg_no_bold[red]%}%m \
-%{$fg_no_bold[white]%}%1d %(!.###.>>>) \
-%{$reset_color%}"
-else  
-    PROMPT="%{$fg_no_bold[white]%}%n \
-@ %{$fg_no_bold[red]%}%m \
-%{$fg_no_bold[blue]%}%1d \
-%(!.###.>>>) %{$reset_color%}"
+# Color prompt
+if [[ "$USER" == "root" ]] then
+    PROMPT="%{$fg_no_bold[white]%}%n @ %{$fg_no_bold[yellow]%}%m %{$fg_no_bold[blue]%}%1d %(!.###.>>>) %{$reset_color%}"
+else
+    PROMPT="%{$fg_no_bold[white]%}%n at %{$fg_no_bold[green]%}%m %{$fg_no_bold[white]%}%1d %(!.###.>>>) %{$reset_color%}"
 fi
 
-if [[ "$USER" == "david" ]]
-then
-    if [[ -z "$TMUX" && $TERM == "xterm" ]] 
-    then
-	killall tmux
-        tmux
-    fi
-fi
 
 # Aliases
 
 alias ls='ls --color'
 alias sl='ls'
+alias ll='ls -l'
+alias l.='ls -d .*'
+alias psget='ps -aux | grep '
+alias psg='ps -aux | grep '
+alias gs='git status'
+alias gc='git commit'
+alias gl='git log'
+alias ga='git add'
+alias gr='git reset'
+
+alias copy='rsync --info=progress2 -a'
+alias cpp='rsync --info=progress2 -a'
+
+alias sduo='sudo'
 
 alias -s php=vim
-alias -s py=vim
+alias -s py=python
+alias -s jpg=gnome-open
+alias -s jpeg=gnome-open
+alias -s png=gnome-open
+alias -s gif=gnome-open
+
 
 alias -g C='| wc -l'
 alias -g RAND100='echo $[${RANDOM}%100]'
@@ -156,7 +156,6 @@ hosts=(
   "$HOST"
   localhost
 )
-
 zstyle ':completion:*:hosts' hosts $hosts
 zstyle ':completion:*' users off
 
@@ -187,5 +186,5 @@ if [ "x$COMPLETION_WAITING_DOTS" = "xtrue" ]; then
   bindkey "^I" expand-or-complete-with-dots
 fi
 
-# vim: tabstop=8:noexpandtab
+export TERM=xterm-256color
 
