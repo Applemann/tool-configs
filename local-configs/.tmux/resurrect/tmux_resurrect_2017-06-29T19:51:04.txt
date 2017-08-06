@@ -1,0 +1,53 @@
+pane	0	0	:zsh	0	:	0	:/home/martin/SQL	0	zsh	:
+pane	0	0	:zsh	0	:	1	:/home/martin	1	zsh	:
+pane	0	1	:config	0	:	0	:/home/martin	1	vim	:vim /etc/ansible/hosts /home/martin/.ssh/config /home/martin/.vimrc /home/martin/.tmux.conf /home/martin/.zshrc
+pane	0	1	:config	0	:	1	:/home/martin	0	zsh	:
+pane	0	2	:awesome	0	:	0	:/home/martin/Scripts/awesome	1	zsh	:
+pane	0	2	:awesome	0	:	1	:/home/martin/Scripts/awesome	0	zsh	:
+pane	0	2	:awesome	0	:	2	:/usr/share/awesome/lib	0	zsh	:
+pane	0	3	:gridBoard	1	:*	0	:/home/martin/Programming/Python/gridBoard	1	zsh	:
+pane	0	3	:gridBoard	1	:*	1	:/home/martin/Programming/Python/gridBoard	0	zsh	:
+pane	0	3	:gridBoard	1	:*	2	:/home/martin/Programming/Python/gridBoard	0	zsh	:
+pane	0	4	:rdcli	0	:	0	:/home/martin/Programming/Python/rdcli/src	0	vim	:vim main.py
+pane	0	4	:rdcli	0	:	1	:/home/martin/Programming/Python/rdcli	1	zsh	:
+pane	0	4	:rdcli	0	:	2	:/home/martin	0	zsh	:
+pane	0	5	:docker	0	:	0	:/home/martin/Work/docker	1	zsh	:
+pane	0	5	:docker	0	:	1	:/home/martin/Work/docker	0	zsh	:
+pane	0	5	:docker	0	:	2	:/home/martin	0	zsh	:
+pane	0	5	:docker	0	:	3	:/home/martin	0	zsh	:
+pane	0	6	:ansible	0	:	0	:/home/martin	1	zsh	:
+pane	0	7	:virtuals	0	:	0	:/home/martin	0	zsh	:
+pane	0	7	:virtuals	0	:	1	:/home/martin	1	zsh	:
+pane	0	7	:virtuals	0	:	2	:/home/martin/tmp	0	vim	:zsh
+pane	0	8	:server	0	:	0	:/home/martin/bin	1	zsh	:
+pane	0	8	:server	0	:	1	:/home/martin	0	zsh	:
+pane	0	8	:server	0	:	2	:/home/martin	0	zsh	:
+pane	0	9	:zsh	0	:-	0	:/home/martin/tmp	1	zsh	:
+pane	0	9	:zsh	0	:-	1	:/home/martin/tmp	0	zsh	:
+pane	1	0	:zsh	1	:*	0	:/home/martin	1	zsh	:
+pane	2	0	:zsh	1	:*	0	:/home/martin	1	zsh	:
+pane	3	0	:zsh	1	:*	0	:/home/martin	1	zsh	:
+pane	4	0	:zsh	1	:*	0	:/home/martin	1	zsh	:
+pane	5	0	:zsh	1	:*	0	:/home/martin	1	zsh	:
+pane	6	0	:zsh	1	:*	0	:/home/martin	1	zsh	:
+pane	7	0	:zsh	1	:*	0	:/home/martin	1	zsh	:
+pane	8	0	:zsh	1	:*	0	:/home/martin	1	zsh	:
+window	0	0	0	:	31be,212x61,0,0{106x61,0,0,1,105x61,107,0,2}
+window	0	1	0	:	3a31,212x61,0,0{107x61,0,0,3,104x61,108,0,4}
+window	0	2	0	:	bea2,212x61,0,0{106x61,0,0,5,105x61,107,0[105x31,107,0,6,105x29,107,32,7]}
+window	0	3	1	:*	d392,212x61,0,0{107x61,0,0,8,104x61,108,0[104x31,108,0,9,104x29,108,32,10]}
+window	0	4	0	:	d0c6,212x61,0,0{107x61,0,0,11,104x61,108,0[104x31,108,0,12,104x29,108,32,13]}
+window	0	5	0	:	8bce,212x61,0,0{107x61,0,0[107x31,0,0,14,107x29,0,32,15],104x61,108,0[104x31,108,0,16,104x29,108,32,17]}
+window	0	6	0	:	5a27,212x61,0,0,18
+window	0	7	0	:	6ee1,212x61,0,0{107x61,0,0[107x31,0,0,34,107x29,0,32,38],104x61,108,0,20}
+window	0	8	0	:	80c7,212x61,0,0{107x61,0,0,21,104x61,108,0[104x31,108,0,22,104x29,108,32,23]}
+window	0	9	0	:-	0d49,212x61,0,0{106x61,0,0,24,105x61,107,0,25}
+window	1	0	1	:*	da25,212x61,0,0,26
+window	2	0	1	:*	da26,212x61,0,0,27
+window	3	0	1	:*	da27,212x61,0,0,28
+window	4	0	1	:*	da28,212x61,0,0,29
+window	5	0	1	:*	5a20,212x61,0,0,30
+window	6	0	1	:*	5a21,212x61,0,0,31
+window	7	0	1	:*	5a22,212x61,0,0,32
+window	8	0	1	:*	5a29,212x61,0,0,39
+state	0	6
