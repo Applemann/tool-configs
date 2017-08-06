@@ -14,7 +14,34 @@ map <C-g>git tgit.easy.cz<CR>
 cnoremap <C-p> <Esc><Up>
 cnoremap <C-n> <Esc><Down>
 
+imap <C-p> <Esc><Up>
+imap <C-n> <Esc><Down>
+
 inoremap <C-j> <CR>
 cnoremap <C-j> <CR>
+nnoremap <C-j> <CR>
+noremap <C-j> <CR>
+
+inoremap <C-o> <Esc><C-o>
+
+no gr :emenu View.Enter Reader View<CR>
+no gR :emenu View.Close Reader View<CR>
 
 
+map <A-j> <A-Down>
+map <A-k> <A-Up>
+cmap <C-p> <Up>
+cmap <C-n> <Down>
+
+imap <C-j><C-j> <Tab>
+imap <C-m><C-m> martin.jablecnik
+
+imap <C-d> <Esc><C-d>
+imap <C-u> <Esc><C-u>
+map <C-s> :source ~/.vimperatorrc
+map \s :source ~/.vimperatorrc
+
+noremap j 5j
+noremap k 5k
+noremap h 5h
+noremap l 5l
