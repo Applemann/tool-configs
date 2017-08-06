@@ -74,10 +74,21 @@ autoload -U compinit; compinit
 
 # Color prompt
 if [[ "$USER" == "root" ]] then
-    PROMPT="%{$fg_no_bold[white]%}%n @ %{$fg_no_bold[yellow]%}%m %{$fg_no_bold[blue]%}%1d %(!.###.>>>) %{$reset_color%}"
+
+  PROMPT="%{$fg_no_bold[white]%}%n @ %{$fg_no_bold[yellow]%}%m %{$fg_no_bold[blue]%}%1d %(!.###.>>>) %{$reset_color%}"
+
 else
+
+  if [[ $(hostname) == "martin-pc" ]]; then
     PROMPT="%{$fg_no_bold[white]%}%n at %{$fg_no_bold[green]%}%m %{$fg_no_bold[white]%}%1d %(!.###.>>>) %{$reset_color%}"
+  elif [[ $(hostname) == "martin-work" ]]; then
+    PROMPT="%{$fg_no_bold[white]%}%n at %{$fg_no_bold[cyan]%}%m %{$fg_no_bold[white]%}%1d %(!.###.>>>) %{$reset_color%}"
+  else
+    PROMPT="%{$fg_no_bold[white]%}%n at %{$fg_bold[cyan]%}%m %{$fg_no_bold[white]%}%1d %(!.###.>>>) %{$reset_color%}"
+  fi
+
 fi
+
 
 
 # Aliases
