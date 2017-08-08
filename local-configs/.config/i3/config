@@ -38,8 +38,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# hibernate
-bindsym $mod+Shift+Escape exec "i3lock;sudo systemctl hibernate"
+# lock screen
+bindsym $mod+Shift+Escape exec "i3lock"
 
 # lock computer
 bindsym $mod+Escape exec "i3lock"
