@@ -18,7 +18,9 @@ xinput set-prop $ID "Device Accel Constant Deceleration" 0.7
 
 
 #setup background image
-#feh --bg-scale /home/martin/Pictures/wallper.jpg
+if [[ $(hostname) == "martin-work" ]]; then
+    feh --bg-scale /home/martin/Pictures/wallper.jpg
+fi
 
 ##run local mailserver
 #mailcatcher
