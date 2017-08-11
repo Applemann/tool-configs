@@ -32,8 +32,8 @@ map <silent><C-h> :wincmd h<CR>
 map <silent><C-l> :wincmd l<CR>
 
 colorscheme desert
-colorscheme wombat256mod
+"colorscheme wombat256mod
 
-set backup
-set backupdir=~/vim_auto_backups
+"set backup
+"set backupdir=~/vim_auto_backups
 au BufWritePre * let &bex = '-' . strftime("%Y%m%d-%H%M%S"))
