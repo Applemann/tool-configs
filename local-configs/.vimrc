@@ -269,7 +269,7 @@ map gp :bp<CR>
 
 noremap <S-w><S-w> :w <CR>
 map <S-t> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.retry$']
 "map <C-r> :r !bash ~/.tmux/run_puppet.sh<CR>
 set nopaste
 set tabstop=2
