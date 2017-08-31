@@ -74,6 +74,9 @@ set listchars=tab:>-,eol:$,trail:*,extends:>,precedes:<
 
 set background=dark
 
+"remove menu bar
+set guioptions-=m  
+
 set cinkeys-=0#
 function! Ft()
     return &filetype
