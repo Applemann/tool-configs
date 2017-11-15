@@ -45,10 +45,10 @@ setopt autopushd
 setopt nobeep
 setopt cbases
 setopt checkjobs
-setopt noclobber
-setopt histallowclobber
+#setopt noclobber
+#setopt histallowclobber
 setopt completeinword
-setopt correct
+#setopt correct
 setopt cshjunkiehistory
 setopt cshjunkieloops
 setopt extendedglob
