@@ -36,13 +36,16 @@ popup_during_fullscreen leave_fullscreen
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # lock screen
 bindsym $mod+Shift+Escape exec "i3lock"
 
+# print screen
+#bindsym Print exec scrot /home/martin/Pictures/screenshot.png
+bindsym Print exec shutter
 # lock computer
-bindsym $mod+Escape exec "i3lock"
+#bindsym $mod+Escape exec "i3lock"
 
 # kill focused window
 bindsym $alt+Shift+q kill
@@ -64,6 +67,8 @@ bindsym $mod+l focus right
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 
+bindsym $mod+p focus left
+bindsym $mod+n focus right
 
 bindsym $alt+l focus right
 bindsym $alt+h focus left
@@ -77,11 +82,11 @@ bindsym $ctrl+$alt+k focus up
 bindsym $alt+Shift+Tab focus up
 bindsym $alt+Tab focus down
 
-# alternatively, you can use the cursor keys:
-bindsym $alt+Left focus left
-bindsym $alt+Down focus down
-bindsym $alt+Up focus up
-bindsym $alt+Right focus right
+## alternatively, you can use the cursor keys:
+#bindsym $alt+Left focus left
+#bindsym $alt+Down focus down
+#bindsym $alt+Up focus up
+#bindsym $alt+Right focus right
 
 # move focused window
 bindsym $alt+Shift+h move left
@@ -89,19 +94,19 @@ bindsym $alt+Shift+j move down
 bindsym $alt+Shift+k move up
 bindsym $alt+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $alt+Shift+Left move left
-bindsym $alt+Shift+Down move down
-bindsym $alt+Shift+Up move up
-bindsym $alt+Shift+Right move right
+## alternatively, you can use the cursor keys:
+#bindsym $alt+Shift+Left move left
+#bindsym $alt+Shift+Down move down
+#bindsym $alt+Shift+Up move up
+#bindsym $alt+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+v split h
-bindsym $alt+v split h
-
-# split in vertical orientation
-bindsym $mod+s split v
-bindsym $alt+s split v
+## split in horizontal orientation
+#bindsym $mod+| split h
+#bindsym $alt+| split h
+#
+## split in vertical orientation
+#bindsym $mod+- split v
+#bindsym $alt+- split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -110,12 +115,12 @@ bindsym $mod+z fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+q layout tabbed
+#bindsym $mod+q layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $alt+w layout stacking
 bindsym $alt+t layout tabbed
-bindsym $alt+q layout tabbed
+#bindsym $alt+q layout tabbed
 bindsym $alt+e layout toggle split
 
 # toggle tiling / floating
@@ -132,16 +137,17 @@ bindsym $mod+a focus parent
 
 
 ## WORK:
+#set $workspace0 "0:[0]:Work"
 #set $workspace1 "1:[1]:Firefox"
 #set $workspace2 "2:[2]:Terminal"
 #set $workspace3 "3:[3]:Papertrail"
 #set $workspace4 "4:[4]:Monitoring"
 #set $workspace5 "5:[5]:Docker"
 #set $workspace6 "6:[6]:Ansible"
-#set $workspace7 "7:[7]:Virtuals"
+#set $workspace7 "7:[7]:Comunicators"
 #set $workspace8 "8:[8]:Servers"
-#set $workspace9 "9:[9]:Comunicators"
-#set $workspace0 "0:[0]:Work"
+#set $workspace9 "9:[9]:Rancher"
+#set $workspace10 "10:[F10]:Virtuals"
 
 ## HOME
 #set $workspace1 "1:[1]:Firefox"
@@ -151,12 +157,14 @@ bindsym $mod+a focus parent
 #set $workspace5 "5:[5]"
 #set $workspace6 "6:[6]"
 #set $workspace7 "7:[7]:Facebook"
+#
 #set $workspace8 "8:[8]:Tmp"
 #set $workspace9 "9:[9]:Mail"
 #set $workspace0 "10:[0]:Badoo"
 
 
 # switch to workspace
+bindsym $alt+0 workspace $workspace0
 bindsym $alt+1 workspace $workspace1
 bindsym $alt+2 workspace $workspace2
 bindsym $alt+3 workspace $workspace3
@@ -166,7 +174,7 @@ bindsym $alt+6 workspace $workspace6
 bindsym $alt+7 workspace $workspace7
 bindsym $alt+8 workspace $workspace8
 bindsym $alt+9 workspace $workspace9
-bindsym $alt+0 workspace $workspace0
+bindsym $alt+F10 workspace $workspace10
 
 bindsym Control+Mod1+h workspace prev
 bindsym Control+Mod1+l workspace next
@@ -174,6 +182,7 @@ bindsym $alt+p workspace prev
 bindsym $alt+n workspace next
 
 # move focused container to workspace
+bindsym $alt+Shift+0 move container to workspace $workspace0; workspace $workspace0
 bindsym $alt+Shift+1 move container to workspace $workspace1; workspace $workspace1
 bindsym $alt+Shift+2 move container to workspace $workspace2; workspace $workspace2
 bindsym $alt+Shift+3 move container to workspace $workspace3; workspace $workspace3
@@ -183,7 +192,7 @@ bindsym $alt+Shift+6 move container to workspace $workspace6; workspace $workspa
 bindsym $alt+Shift+7 move container to workspace $workspace7; workspace $workspace7
 bindsym $alt+Shift+8 move container to workspace $workspace8; workspace $workspace8
 bindsym $alt+Shift+9 move container to workspace $workspace9; workspace $workspace9
-bindsym $alt+Shift+0 move container to workspace $workspace0; workspace $workspace0
+bindsym $alt+Shift+F10 move container to workspace $workspace10; workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -229,6 +238,7 @@ bar {
 
 
 workspace_auto_back_and_forth yes
+#workspace_layout stacking
 
 
 set $mode_launcher Launch mode
