@@ -32,6 +32,8 @@ new_window normal
 hide_edge_borders both
 popup_during_fullscreen leave_fullscreen
 
+bindsym $alt+space exec "switch-layout"
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
