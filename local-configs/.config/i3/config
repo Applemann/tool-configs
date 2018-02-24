@@ -46,8 +46,6 @@ bindsym $mod+Shift+Escape exec "i3lock"
 # print screen
 #bindsym Print exec scrot /home/martin/Pictures/screenshot.png
 bindsym Print exec shutter
-# lock computer
-#bindsym $mod+Escape exec "i3lock"
 
 # kill focused window
 bindsym $alt+Shift+q kill
@@ -69,8 +67,8 @@ bindsym $mod+l focus right
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 
-bindsym $mod+p focus left
-bindsym $mod+n focus right
+#bindsym $mod+p focus left
+#bindsym $mod+n focus right
 
 bindsym $alt+l focus right
 bindsym $alt+h focus left
@@ -84,11 +82,11 @@ bindsym $ctrl+$alt+k focus up
 bindsym $alt+Shift+Tab focus up
 bindsym $alt+Tab focus down
 
-## alternatively, you can use the cursor keys:
-#bindsym $alt+Left focus left
-#bindsym $alt+Down focus down
-#bindsym $alt+Up focus up
-#bindsym $alt+Right focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
 bindsym $alt+Shift+h move left
@@ -96,19 +94,17 @@ bindsym $alt+Shift+j move down
 bindsym $alt+Shift+k move up
 bindsym $alt+Shift+l move right
 
-## alternatively, you can use the cursor keys:
-#bindsym $alt+Shift+Left move left
-#bindsym $alt+Shift+Down move down
-#bindsym $alt+Shift+Up move up
-#bindsym $alt+Shift+Right move right
+# alternatively, you can use the cursor keys:
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
 
-## split in horizontal orientation
-#bindsym $mod+| split h
-#bindsym $alt+| split h
-#
-## split in vertical orientation
-#bindsym $mod+- split v
-#bindsym $alt+- split v
+# split in horizontal orientation
+bindsym $mod+v split h
+
+# split in vertical orientation
+bindsym $mod+s split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -153,16 +149,15 @@ bindsym $mod+a focus parent
 
 ## HOME
 #set $workspace1 "1:[1]:Firefox"
-#set $workspace2 "2:[2]:IDE"
-#set $workspace3 "3:[3]:Terminal"
+#set $workspace2 "2:[2]:Terminal"
+#set $workspace3 "3:[3]:IDE"
 #set $workspace4 "4:[4]"
-#set $workspace5 "5:[5]"
+#set $workspace5 "5:[5]:Steam"
 #set $workspace6 "6:[6]"
-#set $workspace7 "7:[7]:Facebook"
-#
-#set $workspace8 "8:[8]:Tmp"
+#set $workspace7 "7:[7]:Virtuals"
+#set $workspace8 "8:[8]:Facebook"
 #set $workspace9 "9:[9]:Mail"
-#set $workspace0 "10:[0]:Badoo"
+#set $workspace0 "0:[0]:Work"
 
 
 # switch to workspace
@@ -257,13 +252,16 @@ mode "$mode_launcher" {
     bindsym v exec virtualbox; mode "default"
     bindsym k exec dbus-launch krusader; mode "default"
     bindsym a exec /home/martin/bin/autoload; mode "default"
+    bindsym s exec steam; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
 
-# bindsym $mod+Shift+Right move workspace to output right
-# bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Right move workspace to output right
+bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+h move workspace to output right
+bindsym $mod+Shift+l move workspace to output left
 
 exec --no-startup-id /etc/upstart
 exec --no-startup-id nm-applet
