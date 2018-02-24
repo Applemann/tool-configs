@@ -269,6 +269,7 @@ exec --no-startup-id /etc/upstart
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id pnmixer
+exec --no-startup-id udiskie -s -f krusader
 
 
 
