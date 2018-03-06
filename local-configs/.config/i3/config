@@ -267,6 +267,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
 exec --no-startup-id pnmixer
 exec --no-startup-id udiskie -s -f krusader
+exec --no-startup-id compton --config ~/.config/i3/compton.conf -b
 
 
 
