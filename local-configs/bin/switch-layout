@@ -1,0 +1,14 @@
+#!/bin/bash
+
+layout=$(setxkbmap -query | grep layout | awk '{{ print $2 }}' | cut -f1 -d',')
+if [[ $layout == 'us' ]]; then
+    setxkbmap "cz(qwerty)"
+else
+    setxkbmap "us"
+fi
+
+xmodmap -e "remove Lock = Caps_Lock"
+#xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+xmodmap -e "keycode 9 = Escape NoSymbol Escape"
+xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+

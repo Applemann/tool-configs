@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+xdotool type "echo -ne \"\033]0;\$(hostname|cut -f1 -d'.')\007\""
+xdotool key Return
+xdotool key Ctrl+l
+

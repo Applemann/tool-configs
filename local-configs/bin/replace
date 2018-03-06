@@ -1,0 +1,5 @@
+#!/bin/bash
+#ack -l "${1}" | xargs perl -pi -E "s/${1}/${2}/g"
+echo "ack -l \"${1}\" | xargs perl -pi -E \"s/${1}/${2}/g\""
+#sed -i -e 's/DEVEL=True/DEVEL=False/g' src/config.py
+

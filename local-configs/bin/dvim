@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+
+import os, time
+from pyautogui import hotkey
+
+os.system("gvim")
+time.sleep(0.1)
+ 
+#hotkey('alt', 'shift', 'm')
+hotkey('shift', 't')
+ 
+#hotkey('shift', 'alt', 'l')
+hotkey('shift', 'alt', 'k')

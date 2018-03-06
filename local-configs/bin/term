@@ -1,0 +1,4 @@
+#!/bin/bash
+ssh-add ~/.ssh/mjablecnik_id_rsa
+tmux
+
