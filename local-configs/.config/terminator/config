@@ -1,0 +1,92 @@
+[global_config]
+  borderless = True
+  enabled_plugins = ClusterConnect, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  title_hide_sizetext = True
+[keybindings]
+  go_down = <Primary><Shift>j
+  go_left = <Primary><Shift>h
+  go_right = <Primary><Shift>l
+  go_up = <Primary><Shift>k
+  group_all_toggle = <Primary><Shift>g
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[5]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 5367e524-6c1c-4dc4-95d0-3155baeb19c2
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:0
+      size = 960, 1061
+      title = /usr/bin/zsh
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 480
+      ratio = 0.5
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 530
+      ratio = 0.499528746466
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 334
+      ratio = 0.31479736098
+      type = VPaned
+    [[[child7]]]
+      order = 1
+      parent = child5
+      position = 371
+      ratio = 0.511019283747
+      type = VPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 5367e524-6c1c-4dc4-95d0-3155baeb19c2
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 0a1494e5-49d4-47f4-af27-016d10c0fab5
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = d2e91896-b35b-4458-ba32-aa3b0db16b82
+    [[[terminal8]]]
+      order = 0
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = ab1b17b1-7b1a-4ce7-985e-b2e24be2ce7c
+    [[[terminal9]]]
+      order = 1
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = 56b143dc-d692-4c25-bd39-bc421cf9d7f8
+[plugins]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    scrollbar_position = hidden
