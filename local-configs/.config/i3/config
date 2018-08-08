@@ -41,11 +41,11 @@ floating_modifier $mod
 bindsym $mod+Return exec gnome-terminal
 
 # lock screen
-bindsym $mod+Shift+Escape exec "i3lock"
+bindsym $mod+Shift+Escape exec "/home/martin/bin/lock -g"
 
 # print screen
-#bindsym Print exec scrot /home/martin/Pictures/screenshot.png
-bindsym Print exec shutter
+bindsym Print exec scrot /home/martin/Pictures/screenshot.png
+#bindsym Print exec shutter
 
 # kill focused window
 bindsym $alt+Shift+q kill
@@ -133,7 +133,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 
-## WORK:
+## WORK1:
 #set $workspace0 "0:[0]:Work"
 #set $workspace1 "1:[1]:Firefox"
 #set $workspace2 "2:[2]:Terminal"
@@ -157,6 +157,18 @@ bindsym $mod+a focus parent
 #set $workspace8 "8:[8]:Facebook"
 #set $workspace9 "9:[9]:Mail"
 #set $workspace0 "0:[0]:Work"
+
+# WORK2
+set $workspace1 "1:[1]:Firefox"
+set $workspace2 "2:[2]:IDE"
+set $workspace3 "3:[3]:Postman"
+set $workspace4 "4:[4]:Terminal"
+set $workspace5 "5:[5]:Steam"
+set $workspace6 "6:[6]"
+set $workspace7 "7:[7]"
+set $workspace8 "8:[8]"
+set $workspace9 "9:[9]"
+set $workspace0 "0:[0]:Work"
 
 
 # switch to workspace
@@ -191,11 +203,16 @@ bindsym $alt+Shift+9 move container to workspace $workspace9; workspace $workspa
 bindsym $alt+Shift+F10 move container to workspace $workspace10; workspace $workspace10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+c exec dm-tool switch-to-greeter
+bindsym $mod+Shift+s exec dm-tool switch-to-greeter
+bindsym $mod+Shift+g exec dm-tool switch-to-greeter
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-msg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -242,16 +259,19 @@ bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym f exec firefox; mode "default"
-    bindsym o exec opera; mode "default"
+    bindsym i exec /home/martin/Programs/idea-ultimate/bin/idea.sh; mode "default"
+    #bindsym o exec opera; mode "default"
     bindsym c exec zenity --calendar; mode "default"
-    #bindsym c exec google-chrome; mode "default"
-    bindsym g exec google-chrome; mode "default"
+    #bindsym g exec google-chrome; mode "default"
     bindsym t exec thunar; mode "default"
     bindsym m exec thunderbird; mode "default"
     bindsym v exec virtualbox; mode "default"
     bindsym k exec dbus-launch krusader; mode "default"
-    bindsym a exec /home/martin/bin/autoload; mode "default"
+    #bindsym a exec /home/martin/bin/autoload; mode "default"
     bindsym s exec steam; mode "default"
+    bindsym x exec /home/martin/bin/clipster -s -c; mode "default"
+    bindsym p exec /home/martin/Programs/Postman/app/Postman; mode "default"
+    #bindsym p exec scrot /home/martin/Pictures/screenshot.png
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -263,8 +283,9 @@ bindsym $mod+Shift+h move workspace to output right
 bindsym $mod+Shift+l move workspace to output left
 
 exec --no-startup-id /etc/upstart
+exec --no-startup-id /home/martin/bin/clipster -d
 exec --no-startup-id nm-applet
-exec --no-startup-id parcellite
+#exec --no-startup-id parcellite
 exec --no-startup-id pnmixer
 exec --no-startup-id udiskie -s -f krusader
 exec --no-startup-id compton --config ~/.config/i3/compton.conf -b
