@@ -1,7 +1,0 @@
-#!/bin/bash
-
-gvim
-sleep 0.1
-xdotool key shift+t
-xdotool key shift+alt+k
- 

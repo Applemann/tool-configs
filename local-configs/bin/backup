@@ -2,7 +2,7 @@
 
 export NAME=backup-$(date +"%Y-%m-%d")
 mkdir $NAME
-tar -czf $NAME/dotfiles-home.tar.gz ~/.zsh* ~/.ssh ~/.tmux* ~/.zshrc ~/.vim* ~/.mysql ~/.mycli* ~/.config/i3/  
+tar -czf $NAME/dotfiles-home.tar.gz ~/.zsh* ~/.ssh ~/.tmux* ~/.zshrc ~/.vim* ~/.mysql ~/.mycli* ~/.ideavimrc 
 sudo tar -czf $NAME/etc-backup.tar.gz /etc
 tar -czf $NAME/home-backup.tar.gz ~/Documents ~/Scripts ~/bin
 

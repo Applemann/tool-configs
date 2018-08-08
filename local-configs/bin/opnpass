@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+pass_path=~/Documents
+gpg $pass_path/piny.gpg
+
+if [[ $1 == '-R' ]]; then
+    vim -R $pass_path/piny
+    rm $pass_path/piny
+else
+    vim $pass_path/piny
+    gpg --yes -c $pass_path/piny
+
+    if [[ $? == 0 ]]; then
+        rm $pass_path/piny
+
+        echo -e '\nsending to server..'
+        scp $pass_path/piny.gpg root@drakeman.cz:
+    else
+        rm $pass_path/piny
+    fi
+fi

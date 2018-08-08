@@ -11,19 +11,17 @@ xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 export PATH=/home/martin/bin:$PATH
 
 ID=$(xinput list | grep "Lenovo ThinkPad Compact USB Keyboard with TrackPoint" | head -1 | cut -d'=' -f2 | cut -d'[' -f1)
-xinput set-prop $ID "Device Accel Constant Deceleration" 0.5
+xinput set-prop $ID "libinput Accel Speed" 0.6
+#xinput set-prop $ID "Device Accel Constant Deceleration" 0.5
 
-ID=$(xinput list | grep "USB OPTICAL MOUSE" | head -1 | cut -d'=' -f2 | cut -d'[' -f1)
-xinput set-prop $ID "Device Accel Constant Deceleration" 0.7
+ID=$(xinput list | grep "SynPS/2 Synaptics TouchPad" | head -1 | cut -d'=' -f2 | cut -d'[' -f1)
+xinput set-prop $ID "libinput Accel Speed" 0.7
 
-sudo killall openvpn
-sudo openvpn /etc/openvpn/tz.ovpn &
+#sudo killall openvpn
+#sudo openvpn /etc/openvpn/tz.ovpn &
 
 #setup background image
-if [[ $(hostname) == "martin-work" ]]; then
-    feh --bg-scale /home/martin/Pictures/wallper.jpg
-fi
-#feh --bg-scale /home/martin/Pictures/wallper.jpg
+feh --bg-scale /home/martin/Pictures/symbols/wallper.jpg
 
 ##run local mailserver
 #mailcatcher

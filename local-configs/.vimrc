@@ -205,56 +205,6 @@ set guioptions-=T
 let g:DirDiffExcludes = "CVS"
 
 
-" <F2> prepne klavesnici do normalniho (americkeho) rozlozeni klaves
-" map <F2> :set noremap<CR>:so ~/.vim/vimcz-encz<CR>:set remap<CR>
-" imap <F2> <C-O>:set noremap<CR><C-O>:so ~/.vim/vimcz-encz<CR><C-O>:set remap<CR>
-
-" <F3> prepne klavesnici do modu pro psani cestiny ;)
-" map <F3> :set noremap<CR>:so ~/.vim/vimcz-czen<CR>:set remap<CR>
-" imap <F3> <C-O>:set noremap<CR><C-O>:so ~/.vim/vimcz-czen<CR><C-O>:set remap<CR>
-
-" <F5> zmeni hlsearch status
-" map <F5> :set hls!<CR>:set hls?<CR>
-"imap <F5> <C-O>:set hls!<CR>:set hls?<CR>
-imap jj <Esc>
-
-nmap <F6> :syn sync fromstart<CR>
-
-" <F6> predchozi jump
-"map <F6> :cp<CR>
-"imap <F6> <C-O>:cp<CR>
-"
-"" <F7> nasledujici jump
-"map <F7> :cn<CR>
-"imap <F7> <C-O>:cn<CR>
-
-" <F11> prepne prohledavani do normalniho modu
-map <F11> :set wim=full<CR>
-imap <F11> <C-O>:set wim=full<CR>
-
-" <F12> zapne prohledavani vseho textu pri pouziti :h
-map <F12> :set wim=list:full<CR>
-imap <F12> <C-O>:set wim=list:full<CR>
-
-"nmap g[[ :call ShowBlockName()<CR>
-
-" load english-czech keyboard layout first
-" so ~/.vim/vimcz-encz
-
-""
-"" ShowBlockName.vim mappings:
-""
-"u CursorHold * call ShowBlockName('quiet')
-
-" Tweak commands like [d so that they disable ShowBlockName so it doesn't
-" obliterate the output of this command.
-" nnoremap [d :call ShowBlockName('[d')<CR>
-" nnoremap [i :call ShowBlockName('[i')<CR>
-
-
-" vimc>tw=75
-"
-"
 
 
 

@@ -79,9 +79,9 @@ if [[ "$USER" == "root" ]] then
 
 else
 
-  if [[ $(hostname) == "martin-pc" ]]; then
-    PROMPT="%{$fg_no_bold[white]%}%n at %{$fg_no_bold[green]%}%m %{$fg_no_bold[white]%}%1d %(!.###.>>>) %{$reset_color%}"
-  elif [[ $(hostname) == "martin-work" ]]; then
+  if [[ $(hostname) == "probook-pc" ]]; then
+    PROMPT="%{$fg_no_bold[white]%}%n at %{$fg_no_bold[cyan]%}%m %{$fg_no_bold[white]%}%1d %(!.###.>>>) %{$reset_color%}"
+  elif [[ $(hostname) == "probook-work" ]]; then
     PROMPT="%{$fg_no_bold[white]%}%n at %{$fg_no_bold[cyan]%}%m %{$fg_no_bold[white]%}%1d %(!.###.>>>) %{$reset_color%}"
   else
     PROMPT="%{$fg_no_bold[white]%}%n at %{$fg_bold[cyan]%}%m %{$fg_no_bold[white]%}%1d %(!.###.>>>) %{$reset_color%}"
@@ -199,3 +199,4 @@ fi
 
 export TERM=xterm-256color
 
+source "/home/martin/.sdkman/bin/sdkman-init.sh"
