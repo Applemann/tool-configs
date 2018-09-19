@@ -170,6 +170,10 @@ set $workspace8 "8:[8]"
 set $workspace9 "9:[9]"
 set $workspace0 "0:[0]:Work"
 
+bindsym $alt+Shift+w exec /home/martin/bin/switch-monitor
+bindsym $mod+Shift+w exec /home/martin/bin/switch-monitor
+bindsym $alt+Shift+v exec /home/martin/bin/clipster -s -c; mode "default"
+bindsym $alt+v exec /home/martin/bin/clipster -s -c; mode "default"
 
 # switch to workspace
 bindsym $alt+0 workspace $workspace0
@@ -259,7 +263,8 @@ bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym f exec firefox; mode "default"
-    bindsym i exec /home/martin/Programs/idea-ultimate/bin/idea.sh; mode "default"
+    bindsym u exec /home/martin/Programs/idea-ultimate/bin/idea.sh; mode "default"
+    bindsym i exec /home/martin/Programs/idea-community/bin/idea.sh; mode "default"
     #bindsym o exec opera; mode "default"
     bindsym c exec zenity --calendar; mode "default"
     #bindsym g exec google-chrome; mode "default"
