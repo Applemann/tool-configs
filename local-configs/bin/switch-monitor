@@ -1,0 +1,24 @@
+#!/bin/bash
+#set-default-monitor () {
+#    xrandr --output eDP-1 --auto
+#    xrandr --output DP-1 --off
+#}
+#
+#set-external-monitor () {
+#    xrandr --output DP-1 --auto
+#    xrandr --output eDP-1 --off
+#}
+
+
+
+current=$(xrandr | grep -C 1 '*' | head -1 | awk '{{ print $1 }}')
+another_monitor=$(xrandr | grep ' connected ' | awk '{{ print $1 }}' | grep -v "^$current" | head -1)
+
+
+xrandr --output $another_monitor --auto
+xrandr --output $current --off
+
+xmodmap -e "remove Lock = Caps_Lock"
+#xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+xmodmap -e "keycode 9 = Escape NoSymbol Escape"
+xmodmap -e "keycode 66 = Escape NoSymbol Escape"

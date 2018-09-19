@@ -17,6 +17,11 @@ xinput set-prop $ID "libinput Accel Speed" 0.6
 ID=$(xinput list | grep "SynPS/2 Synaptics TouchPad" | head -1 | cut -d'=' -f2 | cut -d'[' -f1)
 xinput set-prop $ID "libinput Accel Speed" 0.7
 
+ID=$(xinput list | grep "Kingsis Peripherals Evoluent VerticalMouse" | head -1 | cut -d'=' -f2 | cut -d'[' -f1)
+if [[ -n $ID ]]; then
+    xinput set-button-map $ID 1 2 3 4 5 6 7 9 10 8
+fi
+
 #sudo killall openvpn
 #sudo openvpn /etc/openvpn/tz.ovpn &
 
