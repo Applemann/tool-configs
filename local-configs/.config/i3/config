@@ -173,7 +173,9 @@ set $workspace0 "0:[0]:Work"
 bindsym $alt+Shift+w exec /home/martin/bin/switch-monitor
 bindsym $mod+Shift+w exec /home/martin/bin/switch-monitor
 bindsym $alt+Shift+v exec /home/martin/bin/clipster -s -c; mode "default"
+bindsym $alt+Shift+x exec /home/martin/bin/clipster -s -c; mode "default"
 bindsym $alt+v exec /home/martin/bin/clipster -s -c; mode "default"
+bindsym $alt+x exec /home/martin/bin/clipster -s -c; mode "default"
 
 # switch to workspace
 bindsym $alt+0 workspace $workspace0
@@ -289,6 +291,7 @@ bindsym $mod+Shift+l move workspace to output left
 
 exec --no-startup-id /etc/upstart
 exec --no-startup-id /home/martin/bin/clipster -d
+exec --no-startup-id /home/martin/bin/battery-popup -L 15
 exec --no-startup-id nm-applet
 #exec --no-startup-id parcellite
 exec --no-startup-id pnmixer
