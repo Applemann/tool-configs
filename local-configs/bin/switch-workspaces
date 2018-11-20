@@ -1,6 +1,8 @@
 #!/bin/bash
-WORKSPACE_GRID_WEIGHT=4
-WORKSPACE_GRID_HEIGHT=4
+WORKSPACE_GRID_WEIGHT=5
+workspace_num=$(wmctrl -d | wc -l)
+
+wmctrl -n 16
 
 # get all window ids in current desktop
 get_all_window_ids(){
@@ -28,8 +30,6 @@ move_all_windows_to(){
 
 
 workspace_grid_weight=$WORKSPACE_GRID_WEIGHT 
-workspace_grid_height=$WORKSPACE_GRID_HEIGHT 
-workspace_max=$(( $(($workspace_grid_weight -1)) * $workspace_grid_height ))
 
 
 get_block_workspaces_for_line(){
@@ -39,6 +39,7 @@ get_block_workspaces_for_line(){
     block_workspaces=$(seq $start $end)
     echo $block_workspaces
 }
+
 
 move_workspace_line(){
     from_line=$1
@@ -60,3 +61,4 @@ move_workspace_line 2 1
 move_workspace_line 3 2 
 
 
+#wmctrl -n $workspace_num 
