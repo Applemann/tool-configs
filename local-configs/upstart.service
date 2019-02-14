@@ -1,0 +1,13 @@
+[Unit]
+Description=Script for run user scripts after start
+
+[Service]
+Type=oneshot
+ExecStart=/etc/upstart
+User=root
+RemainAfterExit=yes
+Environment=PATH=/bin:/usr/bin:/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
+
