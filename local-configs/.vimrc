@@ -172,21 +172,18 @@ set wildmode=longest,full
 set wcm=<C-Z>
 map <F10> :emenu <C-Z>
 
-" source ~/.vim/abbreviations
 
-" let myfiletypefile='~/filetype.vim'
 filetype indent on
 filetype plugin on
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
-" augroup filetypedetect
-"     autocmd BufNewFile,BufRead *.tpl                          setfiletype smarty
-"     autocmd BufNewFile,BufRead /usr/home/roman/work/*.php     setfiletype php
-"     "autocmd BufNewFile,BufRead /home/roman/work/*.php         setlocal syntax=
-"     autocmd BufNewFile,BufRead /usr/home/roman/work/*.php     setlocal expandtab tabstop=4 foldmethod=marker
-" augroup END
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+
+
+" settings for GUI
 if has("gui_running")
     colorscheme murphy
     set winaltkeys=menu
@@ -203,7 +200,6 @@ set guioptions-=T
 
 " DirDiff
 let g:DirDiffExcludes = "CVS"
-
 
 
 
