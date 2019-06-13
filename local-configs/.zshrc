@@ -1,16 +1,86 @@
-#!/bin/zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-#############################################
-###                                       ###
-###  Contributors:   Smradoch             ###
-###                  David                ###
-###                  Drakeman             ###
-###                                       ###
-#############################################
+# Path to your oh-my-zsh installation.
+export ZSH="/home/martin/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 
-fpath=(~/.zsh/bin $fpath) 
 
+
+# User configuration
+
+
+
+
+# Exports
 export PAGER=less;
 export EDITOR=vim;
 export HISTSIZE=10000
@@ -20,56 +90,9 @@ export LSCOLORS="cxfxcxdxbxegedabagacad"
 export MANWIDTH="76"
 export PATH=$PATH:~/bin:/home/martin/bin
 export XDG_CONFIG_HOME=/home/martin/.local
-
-bindkey -e
-
-# david
-#
-
-# david
-#
-
-zmodload -i zsh/mathfunc;
-
-# Smradoch's conf (R.F.H.)
-#
-
-fignore=(\~ \.swp)
-
-setopt inc_append_history
-setopt appendhistory
-setopt autocd
-setopt automenu
-setopt autolist
-setopt autopushd
-setopt nobeep
-setopt cbases
-setopt checkjobs
-#setopt noclobber
-#setopt histallowclobber
-setopt completeinword
-#setopt correct
-setopt cshjunkiehistory
-setopt cshjunkieloops
-setopt extendedglob
-setopt extendedhistory
-setopt hashcmds
-setopt hashdirs
-setopt histignoredups
-setopt histnostore
-setopt histreduceblanks
-setopt histverify
-setopt interactivecomments
-setopt nolistambiguous
-setopt listpacked
-setopt listtypes
-setopt longlistjobs
-setopt octalzeroes
-setopt pathdirs
-setopt pushdignoredups
-
-autoload -U colors; colors
-autoload -U compinit; compinit
+export JAVA_HOME="/home/martin/Programs/jdk1.8.0_172"
+#export JAVA_HOME="/home/martin/Programs/jdk-11.0.2"
+#export LANG=en_US.UTF-8
 
 
 # Color prompt
@@ -97,106 +120,42 @@ alias ls='ls --color'
 alias sl='ls'
 alias ll='ls -l'
 alias l.='ls -d .*'
-alias psget='ps -aux | grep '
+
 alias psg='ps -aux | grep '
+
 alias gs='git status'
 alias gc='git commit'
+alias gch='git checkout'
 alias gl='git log'
 alias ga='git add'
 alias gr='git reset'
+alias gb='git branch'
+
+alias gci='f(){ git commit -m "IssueTracker$1"; unset -f f;}; f'
+alias gbc='f(){ git checkout -b "$1"; unset -f f;}; f'
+alias gbp='git push -u origin HEAD;'
+alias gbpf='git push -u --force-with-lease origin HEAD'
+
 
 alias copy='rsync --info=progress2 -a'
 alias cpp='rsync --info=progress2 -a'
 
 alias sduo='sudo'
 
-alias -s php=vim
-alias -s py=python
-alias -s jpg=gnome-open
-alias -s jpeg=gnome-open
-alias -s png=gnome-open
-alias -s gif=gnome-open
+alias mycli='export LESS="-XSRF" && mycli'
+alias gssh='gcloud compute ssh'
 
 
-alias -g C='| wc -l'
-alias -g RAND100='echo $[${RANDOM}%100]'
-# fixme - the load process here seems a bit bizarre
 
-unsetopt menu_complete   # do not autoselect the first completion entry
-unsetopt flowcontrol
-setopt auto_menu         # show completion menu on succesive tab press
-setopt complete_in_word
-setopt always_to_end
+source <(kubectl completion zsh)
 
-WORDCHARS=''
 
-zmodload -i zsh/complist
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/martin/Programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/martin/Programs/google-cloud-sdk/path.zsh.inc'; fi
 
-## case-insensitive (all),partial-word and then substring completion
-if [ "x$CASE_SENSITIVE" = "xtrue" ]; then
-  zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-  unset CASE_SENSITIVE
-else
-  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/martin/Programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/martin/Programs/google-cloud-sdk/completion.zsh.inc'; fi
 
-zstyle ':completion:*' list-colors ''
 
-# should this be in keybindings?
-bindkey -M menuselect '^o' accept-and-infer-next-history
-
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
-zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
-
-# disable named-directories autocompletion
-zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
-cdpath=(.)
-
-# use /etc/hosts and known_hosts for hostname completion
-[ -r /etc/ssh/ssh_known_hosts ] && _global_ssh_hosts=(${${${${(f)"$(</etc/ssh/ssh_known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _global_ssh_hosts=()
-[ -r ~/.ssh/known_hosts ] && _ssh_hosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _ssh_hosts=()
-[ -r ~/.ssh/config ] && _ssh_config=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p')) || _ssh_config=()
-[ -r /etc/hosts ] && : ${(A)_etc_hosts:=${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}##[:blank:]#[^[:blank:]]#}}} || _etc_hosts=()
-
-hosts=(
-  "$_ssh_config[@]"
-  "$_global_ssh_hosts[@]"
-  "$_ssh_hosts[@]"
-  "$_etc_hosts[@]"
-  "$HOST"
-  localhost
-)
-zstyle ':completion:*:hosts' hosts $hosts
-zstyle ':completion:*' users off
-
-# Use caching so that commands like apt and dpkg complete are useable
-zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path $ZSH/cache/
-
-# Don't complete uninteresting users
-zstyle ':completion:*:*:*:users' ignored-patterns \
-        adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
-        dbus distcache dovecot fax ftp games gdm gkrellmd gopher \
-        hacluster haldaemon halt hsqldb ident junkbust ldap lp mail \
-        mailman mailnull mldonkey mysql nagios \
-        named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
-        operator pcap postfix postgres privoxy pulse pvm quagga radvd \
-        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs
-
-# ... unless we really want to.
-zstyle '*' single-ignored show
-
-if [ "x$COMPLETION_WAITING_DOTS" = "xtrue" ]; then
-  expand-or-complete-with-dots() {
-    echo -n "\e[31m......\e[0m"
-    zle expand-or-complete
-    zle redisplay
-  }
-  zle -N expand-or-complete-with-dots
-  bindkey "^I" expand-or-complete-with-dots
-fi
-
-export TERM=xterm-256color
-
+source /home/martin/Environments/env-test
 source "/home/martin/.sdkman/bin/sdkman-init.sh"
