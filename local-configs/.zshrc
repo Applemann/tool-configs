@@ -88,12 +88,17 @@ export SAVEHIST=10000
 export HISTFILE=~/.zhistory
 export LSCOLORS="cxfxcxdxbxegedabagacad"
 export MANWIDTH="76"
-export PATH=$PATH:~/bin:/home/martin/bin
 export XDG_CONFIG_HOME=/home/martin/.local
 export JAVA_HOME="/home/martin/Programs/jdk1.8.0_172"
 #export JAVA_HOME="/home/martin/Programs/jdk-11.0.2"
 #export LANG=en_US.UTF-8
 
+if [[ ! "$PATH" == */home/martin/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/martin/bin"
+fi
+if [[ ! "$PATH" == */home/martin/Programs/node-v10.16.0-linux-x64/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/martin/Programs/node-v10.16.0-linux-x64/bin"
+fi
 
 # Color prompt
 if [[ "$USER" == "root" ]] then
@@ -130,11 +135,17 @@ alias gl='git log'
 alias ga='git add'
 alias gr='git reset'
 alias gb='git branch'
+alias gf='git fetch'
+alias gbr='/home/martin/bin/remove-branches'
 
 alias gci='f(){ git commit -m "IssueTracker$1"; unset -f f;}; f'
-alias gbc='f(){ git checkout -b "$1"; unset -f f;}; f'
-alias gbp='git push -u origin HEAD;'
-alias gbpf='git push -u --force-with-lease origin HEAD'
+#alias gbc='f(){ git checkout -b "$1"; unset -f f;}; f'
+alias gbc='git branch | fzf | xargs git checkout'
+
+alias gfr='f(){ git fetch && git rebase $1; unset -f f;}; f'
+alias gfrm="git pull origin $(gs | head -1 | awk '{{ print $3 }}') && git fetch && git rebase origin/master"
+alias gp='git push -u origin HEAD;'
+alias gpf='git push -u --force-with-lease origin HEAD'
 
 
 alias copy='rsync --info=progress2 -a'
@@ -145,6 +156,11 @@ alias sduo='sudo'
 alias mycli='export LESS="-XSRF" && mycli'
 alias gssh='gcloud compute ssh'
 
+alias apt-version='apt-cache policy'
+alias aptversion='apt-cache policy'
+alias aptv='apt-cache policy'
+
+alias vim='nvim'
 
 
 source <(kubectl completion zsh)
@@ -157,5 +173,5 @@ if [ -f '/home/martin/Programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/m
 if [ -f '/home/martin/Programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/martin/Programs/google-cloud-sdk/completion.zsh.inc'; fi
 
 
-source /home/martin/Environments/env-test
+source /home/martin/Environments/env-devel
 source "/home/martin/.sdkman/bin/sdkman-init.sh"
