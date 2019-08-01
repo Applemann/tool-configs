@@ -136,7 +136,7 @@ alias ga='git add'
 alias gr='git reset'
 alias gb='git branch'
 alias gf='git fetch'
-alias gbr='/home/martin/bin/remove-branches'
+alias gbr='/home/martin/bin/git-branch-remove'
 
 alias gci='f(){ git commit -m "IssueTracker$1"; unset -f f;}; f'
 #alias gbc='f(){ git checkout -b "$1"; unset -f f;}; f'
