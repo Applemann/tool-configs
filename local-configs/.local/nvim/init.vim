@@ -215,6 +215,8 @@ map <space> <space>
 "imap <C-c> <CR><Esc>O
 "nmap <C-c> di}i<CR><Esc>O<Esc>p
 
+imap jj <Esc>
+imap kk <Esc>
 
 
 

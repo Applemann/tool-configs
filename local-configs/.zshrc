@@ -91,6 +91,7 @@ export MANWIDTH="76"
 export XDG_CONFIG_HOME=/home/martin/.local
 export JAVA_HOME="/home/martin/Programs/jdk1.8.0_172"
 #export JAVA_HOME="/home/martin/Programs/jdk-11.0.2"
+export GOPATH=/home/martin/Programming/Go
 #export LANG=en_US.UTF-8
 
 if [[ ! "$PATH" == */home/martin/bin* ]]; then
@@ -98,6 +99,9 @@ if [[ ! "$PATH" == */home/martin/bin* ]]; then
 fi
 if [[ ! "$PATH" == */home/martin/Programs/node-v10.16.0-linux-x64/bin* ]]; then
   export PATH="${PATH:+${PATH}:}/home/martin/Programs/node-v10.16.0-linux-x64/bin"
+fi
+if [[ ! "$PATH" == */home/martin/Programs/go/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/martin/Programs/go/bin"
 fi
 
 # Color prompt

@@ -268,6 +268,9 @@ noremap [[ ]mj
 map <leader>w :%s/\s\+$//e<CR>:w<CR>
 vmap <esc> v
 
+imap jj <Esc>
+imap kk <Esc>
+
 "imap ll <Esc>la
 "imap hh <Esc>ha
 imap <C-c> <CR><Esc>O

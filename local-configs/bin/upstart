@@ -11,6 +11,7 @@ eval `ssh-agent -s`
 #export PATH=/home/martin/bin:$PATH
 #export JAVA_HOME=/home/martin/Programs/jdk1.8.0_172
 export JAVA_HOME=/home/martin/Programs/jdk-11.0.2
+export GOPATH=/home/martin/Programming/Go
 
 ID=$(xinput list | grep "Lenovo ThinkPad Compact USB Keyboard with TrackPoint" | head -1 | cut -d'=' -f2 | cut -d'[' -f1)
 xinput set-prop $ID "libinput Accel Speed" 0.6
