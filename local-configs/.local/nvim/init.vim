@@ -51,7 +51,7 @@ set lazyredraw
 "  precede each line with its line number
 set number
 " do not unload |abandon|ed buffers
-"set hidden
+set hidden
 " The window that the mouse pointer is on is automatically activated
 set mousefocus
 set winminheight=0
@@ -178,6 +178,10 @@ set guioptions-=T
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 au! BufNewFile,BufReadPost *.ts set syntax=typescript
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType vue setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType svelte setlocal ts=2 sts=2 sw=2 expandtab
 
 
 
@@ -210,13 +214,13 @@ map <space> <space>
 
 "noremap ]] k[mj
 "noremap [[ ]mj
+imap jj <Esc>j
+imap kk <Esc>k
 
 "vmap <esc> v
 "imap <C-c> <CR><Esc>O
 "nmap <C-c> di}i<CR><Esc>O<Esc>p
 
-imap jj <Esc>
-imap kk <Esc>
 
 
 
@@ -226,11 +230,31 @@ set rtp+=~/.local/nvim/plugins/minibufexpl.vim/
 set rtp+=~/.local/nvim/plugins/vim-gitgutter/
 set rtp+=~/.local/nvim/plugins/nerdtree/
 set rtp+=~/.local/nvim/plugins/lightline.vim/
+set rtp+=~/.local/nvim/plugins/vim-table-mode/
+"set rtp+=~/.local/nvim/plugins/test/
+set rtp+=~/.local/nvim/plugins/nvim-table/
+set rtp+=~/.local/nvim/plugins/deoplete.nvim/
 "set rtp+=~/.vim/tabnine-vim
+set rtp+=~/.local/nvim/plugins/kotlin-vim/
+set rtp+=~/.local/nvim/plugins/vim-go/
+set rtp+=~/.local/nvim/plugins/vim-javascript/
+set rtp+=~/.local/nvim/plugins/vim-vue/
+set rtp+=~/.local/nvim/plugins/vim-svelte/
+
+"call plug#begin('~/.local/nvim/plugged')
+""Plug 'posva/vim-vue'	
+""Plug 'dhruvasagar/vim-table-mode'
+""Plug 'evanleck/vim-svelte'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"call plug#end()
 
 
 " NerdTree config
 let NERDTreeWinPos="left"
+
+" Deoplete config
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 
 " MiniBufExpl config
@@ -250,7 +274,6 @@ set guifont=monospace
 colorscheme desert
 
 
-
 """ Gitgutter customiation config 
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
@@ -261,5 +284,32 @@ highlight GitGutterAdd    guifg=#009900 guibg=<X> ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 guibg=<X> ctermfg=3 
 highlight GitGutterDelete guifg=#ff2222 guibg=<X> ctermfg=1 
 
+
+" vim-go config
+au FileType go set noexpandtab
+au FileType go set shiftwidth=2
+au FileType go set softtabstop=2
+au FileType go set tabstop=2
+
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+
+
+""" Other configs
+autocmd BufNewFile,BufRead *.kt setfiletype kotlin
+autocmd BufNewFile,BufRead *.kts setfiletype kotlin
+
+if exists('b:did_ftplugin') | finish | endif
+let b:did_ftplugin = 1
+
+setlocal comments=://
+setlocal commentstring=//\ %s
 
 
