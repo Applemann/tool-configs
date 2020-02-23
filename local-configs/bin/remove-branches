@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+git checkout master
+git branch
+echo ""
+echo ""
+
+for branch in $(git branch); do
+    if [[ ${branch} == 'master' || ${branch} == '*' ]]; then continue; fi
+    echo "Do you want delete branch: ${branch}? [Y/n]"
+    read input
+
+    if [[ ${input} == 'y' || ${input} == 'Y' || ${input} == 'yes' || ${input} == 'YES' || ${input} == '' ]]; then
+        echo "Deleting: ${branch}"
+        git branch -D ${branch}
+        echo ""
+    fi
+done
+
+echo "Branch was changed to master."
