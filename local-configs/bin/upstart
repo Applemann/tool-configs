@@ -11,7 +11,8 @@ eval `ssh-agent -s`
 #export PATH=/home/martin/bin:$PATH
 #export JAVA_HOME=/home/martin/Programs/jdk1.8.0_172
 export JAVA_HOME=/home/martin/Programs/jdk-11.0.2
-export GOPATH=/home/martin/Programming/Go
+#export GOPATH=/home/martin/Programming/Go
+export GOPATH=/tmp/go
 
 ID=$(xinput list | grep "Lenovo ThinkPad Compact USB Keyboard with TrackPoint" | head -1 | cut -d'=' -f2 | cut -d'[' -f1)
 xinput set-prop $ID "libinput Accel Speed" 0.6
@@ -25,6 +26,8 @@ if [[ -n $ID ]]; then
     xinput set-button-map $ID 1 2 3 4 5 6 7 9 10 8
 fi
 
+mkdir /tmp/test
+
 #sudo killall openvpn
 #sudo openvpn /etc/openvpn/tz.ovpn &
 
@@ -35,4 +38,3 @@ fi
 #mailcatcher
 #redis-browser
 #clipster -d
-
